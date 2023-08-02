@@ -1,0 +1,13 @@
+version: '3'
+services:
+  minio:
+    image: quay.io/minio/minio
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    volumes:
+      - ./minio/data:/data
+    environment:
+      - MINIO_ROOT_USER=luuhsantanafs
+      - MINIO_ROOT_PASSWORD=Lucas102030
+    command: server /data --console-address ":9090"
